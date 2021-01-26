@@ -17,6 +17,7 @@ class Home extends React.PureComponent {
 			code: 'china',
 			data: china,
 			loading: false,
+			mode: 'map',
 		};
 	}
 
@@ -28,12 +29,12 @@ class Home extends React.PureComponent {
 		this.setState({ loading: true });
 		axios.get(`/api/area?code=${code}`).then(response => {
 			const data = response.data;
-			this.setState({ code, data, loading: false });
+			this.setState({ code, data, loading: false, mode: 'map' });
 		});
 	};
 
 	render() {
-		const { code, data, loading } = this.state;
+		const { code, data, loading, mode } = this.state;
 		echarts.registerMap(code, data); // 注册地图
 
 		return (
@@ -47,6 +48,15 @@ class Home extends React.PureComponent {
 					onChange={code => this.updateGeo(code)}
 					treeDefaultExpandedKeys={[code]}
 				/>
+				<a
+					className={styles['icon-3d']}
+					title="3D地图"
+					onClick={() => {
+						this.setState({ mode: mode === 'map' ? 'map3D' : 'map' });
+					}}
+				>
+					<img src="/images/3D.svg" />
+				</a>
 				{loading ? (
 					<div
 						style={{
@@ -61,11 +71,10 @@ class Home extends React.PureComponent {
 				) : (
 					<ReactEcharts
 						style={{ height: '100%' }}
-						ref={ref => console.log(ref)}
 						option={{
 							series: [
 								{
-									type: 'map',
+									type: mode,
 									map: code,
 									label: {
 										show: true,
