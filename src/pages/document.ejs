@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>地图</title>
+  <script src="<%= context.publicPath %>echarts/echarts-4.9.0/echarts.min.js"></script>
+  <script src="<%= context.publicPath %>echarts/echarts-gl.min.js"></script>
+  <script>
+    window.rice = {
+      config: JSON.parse(decodeURI("<%= context.config %>")),
+      env: "<%= context.env %>",
+      publicPath: "<%= context.publicPath %>"
+    };
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+/dist
+/public
+!.umirc.js
+!.eslintrc.js
