@@ -13,3 +13,5 @@
 # 效果展示
 
 ![avatar](./doc/normal.png)
+
+![avatar](./doc/3d.png)
