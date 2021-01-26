@@ -1,6 +1,6 @@
-# rice
+# GEO-MAP
 
-基于umi的自定义react框架（antd 3.26.20）
+地图展示
 
 # Install
 
@@ -9,3 +9,7 @@
 # Run
 
 `npm start`
+
+# 效果展示
+
+![avatar](./doc/normal.png)
