@@ -9,8 +9,3 @@
 # Run
 
 `npm start`
-
-# Data Refer
-
-https://datav.aliyun.com/tools/atlas
-
